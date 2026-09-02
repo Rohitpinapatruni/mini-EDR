@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+psutil
+pywin32
+sqlalchemy
+streamlit
+pandas
+plotly
+requests
