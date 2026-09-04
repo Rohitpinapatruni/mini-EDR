@@ -14,6 +14,8 @@ from .collectors.network_collector import (
     get_network_connections
 )
 
+from .services.action import terminate_process
+
 
 Base.metadata.create_all(bind=engine)
 
@@ -52,6 +54,16 @@ def root():
 def processes():
 
     return get_all_processes()
+
+
+@app.post("/processes/{pid}/terminate")
+def terminate(pid: int):
+    success = terminate_process(pid)
+    if success:
+        return {"status": "success", "message": f"Process {pid} terminated."}
+    else:
+        from fastapi import HTTPException
+        raise HTTPException(status_code=400, detail=f"Failed to terminate process {pid}. It might not exist or access was denied.")
 
 
 @app.get("/network")
