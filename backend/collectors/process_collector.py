@@ -41,10 +41,17 @@ def get_process_info(proc):
 
             sha256 = calculate_sha256(exe) if exe else None
 
+            try:
+                cmdline = proc.cmdline()
+                cmdline_str = " ".join(cmdline) if cmdline else ""
+            except (psutil.AccessDenied, psutil.ZombieProcess):
+                cmdline_str = ""
+
             return {
                 "pid": pid,
                 "name": name,
                 "exe_path": exe,
+                "cmdline": cmdline_str,
                 "parent_pid": parent_pid,
                 "username": username,
                 "cpu_percent": round(cpu, 2),
