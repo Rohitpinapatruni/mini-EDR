@@ -1,4 +1,4 @@
-﻿@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap');
 
 :root { font-family: 'Inter', sans-serif; color: #dbe8f4; background: #08111f; font-synthesis: none; --bg: #08111f; --panel: #0d1a2a; --line: #1c3044; --muted: #8296aa; --cyan: #52d7e8; --red: #ff6d7e; --amber: #f6c568; --green: #6be0a5; }
 * { box-sizing: border-box; }
